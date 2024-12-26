@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "[COMMIT-MSG] Test commit message"
+npx --no-install commitlint --edit "$1"
+echo "[COMMIT-MSG] Done!"

@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "baseUrl": "./src",
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      // "crm-ui": ["node_modules/crm-ui/dist/index.d.ts"],
+      "crm-ui": ["../crm-ui/src/index.ts"],
+      "api/*": ["api/*"],
+      "common/*": ["common/*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "routes/*": ["routes/*"],
+      "socket/*": ["socket/*"],
+      "store/*": ["store/*"],
+      "translations/*": ["translations/*"],
+      "user/*": ["user/*"],
+      "utils/*": ["utils/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

@@ -1,0 +1,40 @@
+{
+    "standard.enable": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+     // typechecking configuration - enabled only on .ts files
+    "typescript.validate.enable": true,
+    "javascript.validate.enable": false,
+    // eslint configuration
+    "eslint.enable": true,
+    // enables typescript-plugin-css-modules service
+    "typescript.tsserver.pluginPaths": [
+      "typescript-plugin-css-modules"
+    ],
+    // use node modules ts library instead of the global vscode ts library
+    "typescript.tsdk": "node_modules/typescript/lib",
+  }
+  

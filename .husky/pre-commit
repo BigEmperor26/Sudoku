@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "[PRE-COMMIT] Llint staged files.."
+npx lint-staged
+echo "[PRE-COMMIT] All done, continue commit..."

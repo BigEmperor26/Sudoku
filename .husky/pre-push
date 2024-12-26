@@ -1,0 +1,4 @@
+#echo "[PRE-PUSH] Running tests.."
+#yarn test:ui
+echo "[PRE-PUSH] All done, continue commit..."
+
