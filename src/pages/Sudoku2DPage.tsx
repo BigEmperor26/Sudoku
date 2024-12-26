@@ -107,8 +107,15 @@ export default function Sudoku2DPage({
         },
         justifyContent: "flex-start",
         alignItems: "center",
-        height: "90vh",
+        // height: "90vh",
 
+        width: {
+          xs: "calc(100% - 2rem)",
+          sm: "calc(100% - 8rem)",
+          md: "calc(100% - 12rem)",
+          lg: "calc(100% - 16rem)",
+          xl: "calc(100% - 20rem)",
+        },
         // bgcolor: 'primary.light',
         overflowY: "auto",
         overflowX: "hidden",
@@ -194,7 +201,11 @@ export default function Sudoku2DPage({
             marginX: "auto",
             padding: "0rem",
             borderColor: "#0097a7",
-            aspectRatio: "1",
+            // important for aspect ratio
+
+            aspectRatio: "!1",
+            // webkit aspect ratio
+
             width: {
               xs: "95%",
               sm: "90%",
