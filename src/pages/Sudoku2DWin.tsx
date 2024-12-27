@@ -1,4 +1,11 @@
-import { Button, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import DialogWrapper from "./DialogWrapper";
 import { useEffect, useState } from "react";
 
@@ -27,6 +34,30 @@ export default function SudokuWin({
         setInitialDialogState(state);
         onContinue();
       }}
+      backdrop={
+        <Box
+          sx={{
+            position: "fixed",
+
+            backdropFilter: "blur(10px)",
+            bgcolor: "rgba(0, 0, 0, 0.5)",
+            width: "100%",
+            height: "100%",
+            filter: "blur(5px)",
+            transform: "scale(1.1)",
+            top: 0,
+            left: 0,
+            // backgroundImage: `/assets/confetti.gif`,
+            backgroundImage: `url(/assets/confetti.gif)`,
+            // blur the image
+            // filter: "blur(5px)",
+            // remove the edge of the image
+            backgroundClip: "border-box",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        ></Box>
+      }
     >
       <Stack
         direction={sm ? "column" : "row"}

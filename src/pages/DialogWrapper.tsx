@@ -18,12 +18,14 @@ interface DialogWrapperProps {
   state: boolean;
   children?: React.ReactNode;
   onOpenClose?: (state: boolean) => void;
+  backdrop?: React.ReactNode;
 }
 export default function DialogWrapper({
   title,
   subtitle,
   state,
   children,
+  backdrop,
 
   onOpenClose,
 }: Readonly<DialogWrapperProps>) {
@@ -34,7 +36,7 @@ export default function DialogWrapper({
       direction="column"
       sx={{
         paddingBottom: "1rem",
-        width: sm ? "calc(100%)" : "calc(100%)",
+        width: "calc(100%)",
         height: "100%",
         justifyContent: "center",
       }}
@@ -95,7 +97,11 @@ export default function DialogWrapper({
   return (
     <>
       {sm && (
-        <SwipeableDrawerWrapper state={state} onOpenClose={onOpenClose}>
+        <SwipeableDrawerWrapper
+          state={state}
+          onOpenClose={onOpenClose}
+          backdrop={backdrop}
+        >
           {content}
         </SwipeableDrawerWrapper>
       )}
@@ -107,6 +113,14 @@ export default function DialogWrapper({
           }}
           onClose={() => {
             onOpenClose?.(false);
+          }}
+          slots={{
+            ...(backdrop && {
+              backdrop: () => {
+                // return <div />;
+                return backdrop;
+              },
+            }),
           }}
           open={state}
           sx={{
