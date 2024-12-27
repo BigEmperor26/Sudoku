@@ -34,6 +34,7 @@ export default function SudokuWin({
         sx={{ color: "text.secondary", width: "100%", paddingY: "1rem" }}
       >
         <Button
+          variant="contained"
           sx={{ width: "100%" }}
           onClick={() => {
             setInitialDialogState(false);

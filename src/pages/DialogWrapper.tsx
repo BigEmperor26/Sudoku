@@ -34,7 +34,7 @@ export default function DialogWrapper({
       direction="column"
       sx={{
         paddingBottom: "1rem",
-        width: sm ? "calc(100%)" : "calc(100% - 2rem)",
+        width: sm ? "calc(100%)" : "calc(100%)",
         height: "100%",
         justifyContent: "center",
       }}
@@ -46,7 +46,7 @@ export default function DialogWrapper({
           // move the close button to the right
           // transform: "translateX(1rem) translateY(-1rem)",
           // width: "100%",
-          width: "calc(100% - 2rem)",
+          width: "calc(100%)",
         }}
       >
         <DialogTitle
@@ -55,7 +55,7 @@ export default function DialogWrapper({
             // wrap the text
             whiteSpace: "normal",
             wordWrap: "break-word",
-            width: "calc(100% - 3rem)",
+            // width: "calc(100% - 3rem)",
           }}
         >
           {title}
