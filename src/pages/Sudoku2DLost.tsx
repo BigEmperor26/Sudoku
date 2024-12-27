@@ -1,6 +1,6 @@
-import { Button, Stack, Theme, Typography, useMediaQuery } from '@mui/material';
-import DialogWrapper from './DialogWrapper';
-import { useEffect, useState } from 'react';
+import { Button, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
+import DialogWrapper from "./DialogWrapper";
+import { useEffect, useState } from "react";
 
 interface Sudoku2DLostProps {
   lost: boolean;
@@ -8,12 +8,16 @@ interface Sudoku2DLostProps {
   onNewGame: () => void;
   onContinue: () => void;
 }
-export default function SudokuLost({ lost, onContinue, onNewGame }: Readonly<Sudoku2DLostProps>) {
+export default function SudokuLost({
+  lost,
+  onContinue,
+  onNewGame,
+}: Readonly<Sudoku2DLostProps>) {
   const [initialDialogState, setInitialDialogState] = useState(lost);
   useEffect(() => {
     setInitialDialogState(lost);
   }, [lost]);
-  const sm = useMediaQuery((th: Theme) => th.breakpoints.down('sm'));
+  const sm = useMediaQuery((th: Theme) => th.breakpoints.down("sm"));
 
   return (
     <DialogWrapper
@@ -24,9 +28,13 @@ export default function SudokuLost({ lost, onContinue, onNewGame }: Readonly<Sud
         onContinue();
       }}
     >
-      <Stack direction={sm ? 'column' : 'row'} spacing={2} sx={{ color: 'text.secondary', width: '100%', paddingY: '1rem' }}>
+      <Stack
+        direction={sm ? "column" : "row"}
+        spacing={2}
+        sx={{ color: "text.secondary", width: "100%", paddingY: "1rem" }}
+      >
         <Button
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
           onClick={() => {
             setInitialDialogState(false);
             onNewGame();
@@ -36,7 +44,7 @@ export default function SudokuLost({ lost, onContinue, onNewGame }: Readonly<Sud
         </Button>
         <Button
           variant="contained"
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
           onClick={() => {
             setInitialDialogState(false);
             onContinue();
