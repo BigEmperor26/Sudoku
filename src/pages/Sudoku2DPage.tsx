@@ -215,6 +215,7 @@ export default function Sudoku2DPage({
             },
             maxWidth: "45rem",
             maxHeight: "45rem",
+            overflow: "clip",
           }}
         >
           <Stack
@@ -273,11 +274,23 @@ export default function Sudoku2DPage({
                         : bgColor;
                     return (
                       <>
-                        {idz !== 0 && idz % 3 === 0 && (
-                          <Box sx={{ width: "0.2rem", bgcolor: "#0097a7" }} />
-                        )}
                         {idz !== 0 && idz % 3 !== 0 && (
-                          <Box sx={{ width: "0.15rem", bgcolor: "#B2EBF2" }} />
+                          <Box
+                            sx={{
+                              width: "0.15rem",
+                              bgcolor: "primary.light",
+                            }}
+                          />
+                        )}
+                        {idz !== 0 && idz % 3 === 0 && (
+                          <Box
+                            sx={{
+                              width: "0.2rem",
+                              bgcolor: "primary.dark",
+                              // transform to increase the height
+                              transform: "scaleY(1.5)",
+                            }}
+                          />
                         )}
                         <Box
                           key={`${idz}-box`}
