@@ -1,3 +1,5 @@
+import { solveSudoku } from "./dlxSolver2d";
+
 export class Sudoku2D {
   data: number[][];
 
@@ -9,8 +11,14 @@ export class Sudoku2D {
 
   constructor() {
     // init the 3D sudoku with undefined values
-    this.data = Array.from({ length: this.size }, () => Array.from({ length: this.size }, () => 0));
-    this.possible = Array.from({ length: this.size }, () => Array.from({ length: this.size }, () => Array.from({ length: this.size }, () => 0)));
+    this.data = Array.from({ length: this.size }, () =>
+      Array.from({ length: this.size }, () => 0)
+    );
+    this.possible = Array.from({ length: this.size }, () =>
+      Array.from({ length: this.size }, () =>
+        Array.from({ length: this.size }, () => 0)
+      )
+    );
   }
 
   public fillSudoku(data: number[][]) {
@@ -73,6 +81,23 @@ export class Sudoku2D {
     }
   }
 
+  public clearPercentageHard(percentage: number) {
+    let previousCount = solveSudoku(this.data, 9)?.length ?? 0;
+    // clear a percentage of the sudoku
+    for (let i = 0; i < this.size; i++) {
+      for (let j = 0; j < this.size; j++) {
+        if (Math.random() < percentage) {
+          const previousValue = this.data[i][j];
+          this.data[i][j] = 0;
+          // try to count the number of possible solutions of this sudoku, keep it to 1 if possible
+          const count = solveSudoku(this.data, 9)?.length ?? 0;
+          if (count > previousCount) {
+            this.data[i][j] = previousValue;
+          }
+        }
+      }
+    }
+  }
   public isFull() {
     // Check if the 3D sudoku is full
     for (let i = 0; i < this.size; i++) {

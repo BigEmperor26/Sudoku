@@ -81,7 +81,7 @@ const Sudoku2DComplete = () => {
     setSudoku(() => {
       const sol = new Sudoku2D();
       sol.fillSudoku(solution);
-      sol.clearPercentage(difficultyMap[diff]);
+      sol.clearPercentageHard(difficultyMap[diff]);
       const counts = sol.countNumbers();
       setMissingNumbersCounts(counts);
       setStorage("missingNumbersCounts", counts);
@@ -194,7 +194,12 @@ const Sudoku2DComplete = () => {
     }
   }
   function showHint(curr: [number, number] | null) {
-    if (curr && hints > 0 && initialSudoku.data[curr[0]][curr[1]] === 0) {
+    if (
+      curr &&
+      hints > 0 &&
+      initialSudoku.data[curr[0]][curr[1]] === 0 &&
+      sudoku.data[curr[0]][curr[1]] !== solvedSudoku.data[curr[0]][curr[1]]
+    ) {
       setHints((prev) => {
         setStorage("hints", prev - 1);
         return prev - 1;
